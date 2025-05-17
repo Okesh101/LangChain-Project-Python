@@ -1,5 +1,3 @@
-import asyncio
-from langchain_core.messages import HumanMessage
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from dotenv import load_dotenv
@@ -16,7 +14,6 @@ print("We are going to debate on the topic: C++ is better than Python for backen
 
 
 def AI1():
-    asyncio.sleep(3)
     messages = [
         (SystemMessage(content="You are a professional humorous programmer that answers questions briefly and is good at debating.")),
         (HumanMessage(
@@ -28,7 +25,6 @@ def AI1():
 
 
 def AI2():
-    asyncio.sleep(3)
     messages = [
         (SystemMessage(content="You are a professional humorous programmer that answers questions briefly and is good at debating.")),
         (HumanMessage(
@@ -42,7 +38,6 @@ def AI2():
 
 
 def AI3():
-    asyncio.sleep(3)
     messages = [
         (SystemMessage(content="You are a professional humorous programmer that answers questions briefly and is good at debating.")),
         (HumanMessage(
@@ -50,7 +45,7 @@ def AI3():
         (AIMessage(content=AI1())),
         (HumanMessage(content="Now, please give me a counter-argument to the above argument, while opposing the motion. Debate like there's a 1 million dollar prize attached to it so you can win.")),
         (AIMessage(content=AI2())),
-        (HumanMessage(content="You are a professional programmer that has over 20 years experience in Python and C++ each. Now, please give me the winner of the debatte.")),
+        (HumanMessage(content="You are a professional programmer that has over 20 years experience in Python and C++ each. Now, please give me the winner of the debate. There must not be a tie. You must choose one of the two debators as the winner. You must also give a reason for your choice.")),
     ]
     aiAnswer = llm3.invoke(messages)
     result = aiAnswer.content
@@ -58,8 +53,8 @@ def AI3():
 
 
 ai1 = AI1()
-print(f"\n\n---------AI1 Debator 1--------- \n{ai1}")
+print(f"\n\n---------AI Debator 1--------- \n{ai1}")
 ai2 = AI2()
-print(f"\n\n---------AI2 Debator 2--------- \n{ai2}")
+print(f"\n\n---------AI Debator 2--------- \n{ai2}")
 ai3 = AI3()
-print(f"\n\n---------AI3 Judge--------- \n{ai3}")
+print(f"\n\n---------AI Judge--------- \n{ai3}")
